@@ -90,8 +90,6 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             /**
              * Create Object and insert data from edit text field to SQLite
              */
-            //submitData2SQLiteDB();
-//            submitData2MongoDB();
             methodPostV2(this.name,this.email,this.username,this.password);
 
             Toast.makeText(this,"Data Submit Successfully", Toast.LENGTH_LONG).show();
@@ -100,9 +98,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void submitData2SQLiteDB() {
+    public void submitData2SQLiteDB(String id,String name,String email,String username,String password) {
         //insert to sqlite
-        UserForSQLite userSQLite = new UserForSQLite(this.name,this.email,this.username,this.password);
+        User userSQLite = new User(id,name,email,username,password);
         sqLiteHelper.insertData2SQLite(userSQLite);
         Log.d("TAG","Insert successfully");
 
@@ -133,6 +131,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 System.out.println("Last index : "+response.body().toArray().length);
                 String idx = (response.body().toArray().length+1)+"";
                 methodPost(idx,name,email,username,password);
+                submitData2SQLiteDB(idx,name,email,username,password);
                 Log.i("TAG","Post V.2 method successfully");
             }
 
@@ -161,6 +160,10 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+    }
+
+    public boolean checkDataIfExisting(){
+        return true;
     }
 
 

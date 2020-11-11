@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.vision.Model.User;
+
 public class SQLiteDB extends SQLiteOpenHelper {
     public static final String DB_NAME = "smartdoordb";
     public static final int DB_VERSION = 1;
@@ -13,7 +15,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
     public static final String COL_Email = "email";
     public static final String COL_Username = "username";
     public static final String COL_Password = "password";
-    private String name,email,username,password;
+    public static final String COL_ID = "_id";
 
     public SQLiteDB(Context context){
         super(context,DB_NAME,null,DB_VERSION);
@@ -22,7 +24,7 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_NAME +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        String createTable = "CREATE TABLE " + TABLE_NAME +" (_id VARCHAR PRIMARY KEY, "
                 + COL_Name + " VARCHAR, " + COL_Email + " VARCHAR, "
                 + COL_Username + " VARCHAR," + COL_Password +" VARCHAR );";
         db.execSQL(createTable);
@@ -37,9 +39,10 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
 
 
-    public void insertData2SQLite(UserForSQLite userForSQLite){
+    public void insertData2SQLite(User userForSQLite){
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_ID, userForSQLite.get_id());
         contentValues.put(COL_Name, userForSQLite.getName());
         contentValues.put(COL_Email, userForSQLite.getEmail());
         contentValues.put(COL_Username, userForSQLite.getUsername());
@@ -48,6 +51,11 @@ public class SQLiteDB extends SQLiteOpenHelper {
         db.close();
 
     }
+
+    public void retrieveData(){
+
+    }
+
 
 
 
