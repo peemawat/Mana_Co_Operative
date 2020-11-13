@@ -2,10 +2,14 @@ package com.example.vision;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.vision.Model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLiteDB extends SQLiteOpenHelper {
     public static final String DB_NAME = "smartdoordb";
@@ -52,10 +56,27 @@ public class SQLiteDB extends SQLiteOpenHelper {
 
     }
 
-    public void retrieveData(){
+    public List<User> getAuthenData(){
+        List<User> userList = new ArrayList<User>();
+        String selectQuery = "SELECT * FROM User";
 
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                User user = new User();
+                user.set_id(cursor.getString(0));
+                user.setName(cursor.getString(1));
+                user.setEmail(cursor.getString(2));
+                user.setUsername(cursor.getString(3));
+                user.setPassword(cursor.getString(4));
+
+                userList.add(user);
+            }while (cursor.moveToNext());
+        }
+        return userList;
     }
-
 
 
 

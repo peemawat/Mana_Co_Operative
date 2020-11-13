@@ -29,6 +29,9 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
     SQLiteDB sqLiteHelper;
     ApiInterface apiInterface;
     private int sizeList;
+    private boolean checkNameExisting;
+    private boolean checkEmailExisting;
+    private boolean checkUsernameExisting;
 
     public int getSizeList() {
         return sizeList;
@@ -58,10 +61,11 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        MD5 md5 = new MD5();
         this.name = edtName.getText().toString();
         this.email = edtEmail.getText().toString();
         this.username = edtUsername.getText().toString();
-        this.password = edtPassword.getText().toString();
+        this.password = md5.getMd5(edtPassword.getText().toString());
 
         /**
          * Check data from edit text field is empty
@@ -87,6 +91,15 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             AlertDialog dialog = builder.create();
             dialog.show();
         }else{
+//            checkValueIfExisting(this.name,this.email,this.username);
+//            if (checkNameExisting == true){
+//                Toast.makeText(this,"Invalid name please try another name",Toast.LENGTH_LONG).show();
+//
+//            }else if (checkEmailExisting == true){
+//                Toast.makeText(this,"Invalid email please try another email",Toast.LENGTH_LONG).show();
+//            }else if (checkUsernameExisting == true){
+//                Toast.makeText(this,"Invalid username please try another username ",Toast.LENGTH_LONG).show();
+//            }
             /**
              * Create Object and insert data from edit text field to SQLite
              */
@@ -96,7 +109,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             ClearEditTextAfterDoneTask();
         }
 
-    }
+        }
 
     public void submitData2SQLiteDB(String id,String name,String email,String username,String password) {
         //insert to sqlite
@@ -161,10 +174,49 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         });
 
     }
+//    public void checkValueIfExisting(String name,String email,String username){
+//        apiInterface.getUser().enqueue(new Callback<List<User>>() {
+//            @Override
+//            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+//                response.body().forEach(user -> compareName(name,user.getName()));
+//                response.body().forEach(user -> compareEmail(email,user.getEmail()));
+//                response.body().forEach(user -> compareUsername(username,user.getUsername()));
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<User>> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
-    public boolean checkDataIfExisting(){
-        return true;
-    }
+//    public boolean compareName(String name1,String name2){
+//        if(name1.equalsIgnoreCase(name2)){
+//            checkNameExisting = true;
+//        }else{
+//            checkNameExisting = false;
+//        }
+//        return checkNameExisting;
+//    }
+//
+//    public boolean compareEmail(String email1,String email2){
+//        if (email1.equalsIgnoreCase(email2)){
+//            checkEmailExisting = true;
+//        }else{
+//            checkEmailExisting = false;
+//        }
+//        return checkEmailExisting;
+//    }
+//
+//    public boolean compareUsername(String username1,String username2){
+//        if (username1.equalsIgnoreCase(username2)){
+//            checkUsernameExisting = true;
+//        }else{
+//            checkUsernameExisting = false;
+//        }
+//        return checkUsernameExisting;
+//    }
+
 
 
 }

@@ -47,7 +47,7 @@ public class QrScanner extends AppCompatActivity implements View.OnClickListener
                 String verify = "verify";
                 String keyword = result.getContents();
                 System.out.println(keyword);
-                if (keyword.equals(verify)){
+                if (keyword.equalsIgnoreCase(verify)){
                     Intent intent = new Intent(getApplication(),VerifyData.class);
                     startActivity(intent);
                 }
