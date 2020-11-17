@@ -22,24 +22,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Registration extends AppCompatActivity implements View.OnClickListener {
-    ImageButton imgBtnSubmit;
+    ImageButton imgBtnSubmit,regBtnBack;
     EditText edtName,edtEmail,edtUsername,edtPassword;
     private String name,email,username,password;
     private boolean CheckEditTextEmpty;
     SQLiteDB sqLiteHelper;
     ApiInterface apiInterface;
-    private int sizeList;
-    private boolean checkNameExisting;
-    private boolean checkEmailExisting;
-    private boolean checkUsernameExisting;
-
-    public int getSizeList() {
-        return sizeList;
-    }
-
-    public void setSizeList(int sizeList) {
-        this.sizeList = sizeList;
-    }
+//    private boolean checkNameExisting;
+//    private boolean checkEmailExisting;
+//    private boolean checkUsernameExisting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +43,17 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
     private void init() {
         imgBtnSubmit = findViewById(R.id.imgBtnSubmit);
-        edtName = (EditText)findViewById(R.id.editTextName);
-        edtEmail = (EditText)findViewById(R.id.editTextEmail);
-        edtUsername = (EditText)findViewById(R.id.editTextUsername);
-        edtPassword = (EditText)findViewById(R.id.editTextPassword);
+        edtName = findViewById(R.id.editTextName);
+        edtEmail = findViewById(R.id.editTextEmail);
+        edtUsername = findViewById(R.id.editTextUsername);
+        edtPassword = findViewById(R.id.editTextPassword);
+        regBtnBack = findViewById(R.id.regBackBtn);
+
+        regBtnBack.setOnClickListener(v -> {
+            startActivity(new Intent(getApplication(),MainActivity.class));
+
+        });
+
         imgBtnSubmit.setOnClickListener(this);
     }
 
@@ -72,7 +70,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
          */
         CheckEditTextIsEmptyOrNot(this.name,this.email,this.username,this.password);
         if (CheckEditTextEmpty == true) {
-            Toast.makeText(this,"Please Fill All the Fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_LONG).show();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setCancelable(false);
             builder.setMessage("Invalid please try again!");
@@ -151,6 +149,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 Log.e("TAG","GET method fail");
+                t.printStackTrace();
 
             }
         });
@@ -170,6 +169,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Log.e("TAG", "POST method failed");
+                t.printStackTrace();
             }
         });
 

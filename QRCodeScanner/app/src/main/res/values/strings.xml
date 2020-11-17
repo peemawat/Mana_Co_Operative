@@ -12,4 +12,11 @@
     <string name="password">password</string>
     <string name="todo">TODO</string>
     <string name="scan_qr">Scan QR</string>
+    <string name="user1">User1</string>
+    <string name="name1">Name1</string>
+    <string name="email1">Email1</string>
+    <string name="username2">Username :</string>
+    <string name="name2">Name :</string>
+    <string name="loginPassword">Password</string>
+    <string name="loginUsername">Username</string>
 </resources>

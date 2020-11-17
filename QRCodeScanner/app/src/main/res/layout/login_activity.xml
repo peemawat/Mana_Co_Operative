@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="145dp"
+        android:layout_height="61dp">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/back"
+            android:id="@+id/loginBackBtn"
+            android:scaleType="fitStart"
+            android:backgroundTint="@color/purple_700"
+            android:contentDescription="@string/todo">
+
+        </ImageButton>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="141dp"
+        android:layout_gravity="center"
+        android:src="@drawable/login_icon"
+        android:layout_marginTop="50dp">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/editTextLoginUsername"
+            style="@style/modifiedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:autofillHints=""
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:hint="@string/loginUsername"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextLoginPassword"
+            style="@style/modifiedEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:gravity="center"
+            android:hint="@string/loginPassword"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgBtnSubmit"
+        android:layout_width="208dp"
+        android:layout_height="82dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerInside"
+        android:src="@drawable/login_btn" />
+
+</LinearLayout>
+
+

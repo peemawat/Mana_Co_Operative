@@ -6,37 +6,43 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    tools:context=".">
+    android:background="@drawable/bg"
+    tools:context=".Registration">
+
+    <LinearLayout
+        android:layout_width="145dp"
+        android:layout_height="61dp">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:backgroundTint="@color/purple_500"
+            android:src="@drawable/back"
+            android:id="@+id/regBackBtn">
+
+        </ImageButton>
+
+
+    </LinearLayout>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="100dp"
-        android:adjustViewBounds="true"
-        android:cropToPadding="true"
-        android:src="@drawable/login_hero_image"
-        android:contentDescription="@string/todo" />
-
-    <TextView
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_width="200dp"
+        android:layout_height="126dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/register"
-        android:textColor="@color/blackTextColor"
-        android:textSize="@dimen/headerTextSize"
-        android:textStyle="bold" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/todo"
+        android:cropToPadding="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/register_icon" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:orientation="horizontal">
 
         <EditText
@@ -44,16 +50,18 @@
             style="@style/modifiedEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:autofillHints=""
             android:gravity="center"
             android:hint="@string/name"
             android:inputType="text"
-            android:maxLines="1"
-            android:autofillHints="" />
+            android:maxLines="1" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="57dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:orientation="horizontal">
 
         <EditText
@@ -71,6 +79,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:orientation="horizontal">
 
         <EditText
@@ -88,6 +98,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="58dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
         android:orientation="horizontal">
 
         <EditText
@@ -105,13 +117,14 @@
 
     <ImageButton
         android:id="@+id/imgBtnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
+        android:layout_width="155dp"
+        android:layout_height="79dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/todo"
-        android:src="@drawable/ic_login_button" />
-
+        android:scaleType="fitCenter"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/submit_icon" />
 
 </LinearLayout>
 

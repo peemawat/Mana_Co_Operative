@@ -78,6 +78,12 @@ public class SQLiteDB extends SQLiteOpenHelper {
         return userList;
     }
 
+    public void dropTable(){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DROP TABLE "+TABLE_NAME);
+        onCreate(db);
+}
+
 
 
 }

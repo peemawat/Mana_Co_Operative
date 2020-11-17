@@ -3,7 +3,7 @@ package com.example.vision;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class VerifyData extends AppCompatActivity implements View.OnClickListener  {
 //    ApiInterface apiInterface;
-    Button verifyBtn;
+    ImageButton verifyBtn;
     SQLiteDB sqLiteDB;
 
     @Override

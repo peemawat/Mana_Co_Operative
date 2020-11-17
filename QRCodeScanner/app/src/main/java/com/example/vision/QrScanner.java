@@ -14,19 +14,13 @@ public class QrScanner extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.scanner_activity);
-        init();
-    }
-
-    private void init() {
-        scanBtn = findViewById(R.id.scanBtn);
-        scanBtn.setOnClickListener(this);
+        setContentView(R.layout.infomation_activity);
+        scanCode();
     }
 
 
     @Override
     public void onClick(View view) {
-        scanCode();
     }
 
     private void scanCode() {
