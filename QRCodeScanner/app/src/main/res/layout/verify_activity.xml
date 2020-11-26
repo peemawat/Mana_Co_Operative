@@ -8,8 +8,23 @@
     android:background="@drawable/bg"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="156dp"
+        android:layout_height="69dp">
+
+        <ImageButton
+            android:backgroundTint="@color/purple_500"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/back"
+            android:id="@+id/verifyBtnBack"
+            android:scaleType="fitCenter">
+
+        </ImageButton>
+    </LinearLayout>
+
     <ImageView
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="171dp"
         android:src="@drawable/logo_mana_red">
@@ -21,12 +36,10 @@
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="154dp"
-        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:src="@drawable/verify"
         android:backgroundTint="@color/white"
-        android:text="Verify"
         android:textSize="30sp" />
 
 

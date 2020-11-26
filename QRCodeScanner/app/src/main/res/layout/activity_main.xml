@@ -37,14 +37,14 @@
             tools:layout_centerInParent="true" />
 
         <ImageButton
-            android:id="@+id/regPageBtn"
+            android:id="@+id/scanQrBtn"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:backgroundTint="@color/white"
             android:baselineAligned="false"
             android:contentDescription="@string/todo"
             android:scaleType="fitCenter"
-            android:src="@drawable/register_icon"
+            android:src="@drawable/qrcode"
             tools:layout_centerInParent="true" />
 
     </LinearLayout>

@@ -19,8 +19,20 @@ public class Info extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.infomation_activity);
         sqLiteDB = new SQLiteDB(this);
+        List<User> usersCheck = sqLiteDB.getAuthenData();
+        if (usersCheck.toArray().length == 0){
+            startActivity(new Intent(getApplication(),MainActivity.class));
+        }else{
+            setContentView(R.layout.infomation_activity);
+            init();
+        }
+
+
+
+    }
+
+    public void init(){
         textEmail = findViewById(R.id.TextEmail);
         textName = findViewById(R.id.TextName);
         textUsername = findViewById(R.id.TextUsername);
@@ -32,21 +44,12 @@ public class Info extends AppCompatActivity implements View.OnClickListener {
             textEmail.setText(u.getEmail());
         }
         scanBtn = findViewById(R.id.scanBtn);
-        scanBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplication(),QrScanner.class));
-            }
-        });
+        scanBtn.setOnClickListener(v -> startActivity(new Intent(getApplication(), QrScannerForVerify.class)));
 
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sqLiteDB.dropTable();
-                startActivity(new Intent(getApplication(),MainActivity.class));
-            }
+        logoutBtn.setOnClickListener(v -> {
+            sqLiteDB.dropTable();
+            startActivity(new Intent(getApplication(),MainActivity.class));
         });
-
     }
 
     @Override

@@ -16,7 +16,7 @@
         android:theme="@style/Theme.QRCodeScanner">
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Info">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,11 +29,12 @@
             android:windowSoftInputMode="stateAlwaysHidden">
 
         </activity>
-        <activity android:name=".QrScanner"></activity>
+        <activity android:name=".QrScannerForMainPage"></activity>
         <activity android:name=".VerifyData" ></activity>
         <activity android:name=".Registration"></activity>
         <activity android:name=".Login"></activity>
-        <activity android:name=".Info"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".QrScannerForVerify"></activity>
 
 
     </application>
